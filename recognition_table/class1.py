@@ -154,7 +154,7 @@ def add_in_bd(registration_number, path_to_image, need_attributes):
 
 
 
-main_directory = '/home/wb_08/PycharmProjects/hakaton/documents/dataset_img/class_1/'
+main_directory = 'documents/dataset_img/class_1/'
 
 
 for img in os.listdir(main_directory):
