@@ -38,7 +38,10 @@
 
 ![photo_2020-11-01_01-28-55](https://user-images.githubusercontent.com/42088646/97798742-ea076980-1c39-11eb-8ef7-e129e02b3daa.jpg)
 
-Полученные данные были добавлены в базу данных sqlite.
+Полученные данные были добавлены в базу данных sqlite:
+
+![Снимок экрана от 2020-11-01 12-10-10](https://user-images.githubusercontent.com/42088646/97798892-58006080-1c3b-11eb-80f9-2b6268bf5ee9.png)
+
 
 recognition_table/documents/dataset_img/class_1 - изображения данного класса
 
