@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for document in model.documentsWithPagination %}
+    <div class="item d-flex flex-wrap">
+        <div class="name">
+            <a href="#">
+                {{document.objectname}}
+                <span class="desc">от undefined_data</span>
+            </a>
+        </div>
+        <div class="controls">
+            <a href="javascript:void(0);" class="download"></a>
+        </div>
+         <div class="preview">
+             <ul>
+                 <li>
+                     <div class="name">Тип документа</div>
+                     <div class="value">{{ document.type_doc }}</div>
+                 </li>
+                 <li>
+                     <div class="name">Номер документа</div>
+                     <div class="value">{{ document.num_doc }}</div>
+                 </li>
+                 <li>
+                     <div class="name">Дата составления документа</div>
+                     <div class="value">{{ document.date_doc }}</div>
+                 </li>
+                 <li>
+                     <div class="name">Выдавший орган</div>
+                     <div class="value">{{ document.institution }}</div>
+                 </li>
+                 {% if document.class_id == 'class1' %}
+                 <li>
+                     <div class="name">Административный округ</div>
+                     <div class="value">{{ document.district }}</div>
+                 </li>
+                 <li>
+                     <div class="name">Район</div>
+                     <div class="value">{{ document.region }}</div>
+                 </li>
+                 <li>
+                     <div class="name">Адрес</div>
+                     <div class="value">{{ document.address }}</div>
+                 </li>
+                        <li>
+                     <div class="name">Назначение обьекта</div>
+                     <div class="value">{{ document.objectpurpose }}</div>
+                 </li>
+                 {% else %}
+                 {% endif %}
+             </ul>
+         </div>
+    </div>
+    {% endfor %}
+    <div class="pagination">
+        <ul class="d-flex d-flex justify-content-center">
+            {% for page in range(1, model.pages) %}
+                {%if page == model.current_page %}
+                    <li class="active"><a href="#">{{page}}</a></li>
+                {% else %}
+                    <li><a href="?page={{page}}">{{page}}</a></li>
+                {%endif%}
+            {%endfor%}
+        </ul>
+    </div>
+{% endblock %}

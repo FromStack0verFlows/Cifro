@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap-grid.min.css">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="../static/fonts/sfui/stylesheet.css">
+    <link rel="stylesheet" href="../static/fonts/roboto/stylesheet.css">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="../static/css/jquery-ui-1.10.3.custom.css">
+    <link rel="stylesheet" href="../static/css/desktop.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="../static/js/jquery.datepicker.extension.range.min.js"></script>
+    <script src="../static/js/main.js"></script>
+    <title>Результаты - ГОСДОК</title>
+</head>
+<body>
+    <div class="wrapper search results d-flex flex-column justify-content-between align-items-center">
+        <div class="container">
+            <div class="row search-panel">
+                <div class="col-lg-3">
+                    <div class="logo">
+                        <a href="#"><img src="../static/img/logo-cifro.svg" alt="Госдок"></a>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <form class="d-flex flex-wrap justify-content-between">
+                        <div class="search-input">
+                            <input type="text" class="form-control" id="search-input" placeholder="Кадастровый номер или ФИО...">
+                            <div class="categories">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Поиск</button>
+                        <a href="javascript:void(0);" id="open-filters">Фильтр</a>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="type-menu">
+                        <ul>
+                            <li><input type="checkbox" id="docs-all"> <label class="all" for="docs-all">Все</label></li>
+                            <li><input type="checkbox" id="docs-kadastr"> <label for="docs-kadastr">Кадастр</label></li>
+                            <li><input type="checkbox" id="docs-tehpass"> <label for="docs-tehpass">Тех. паспорт</label></li>
+                        </ul>
+                    </div>
+                    <div class="select-date">
+                        <div class="dp">Дата выдачи документа</div>
+                        <input type="hidden" name="startDate">
+                        <input type="hidden" name="endDate">
+                    </div>
+                    <div class="date-picker">
+                        <div id="date-picker-show"></div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="res-items">
+                        {% if model.count > 0 %}
+                        {% block content %}{% endblock %}
+                        {% else %}
+                        <p class="empty_content">Здесь пусто. В базе данных нет документов</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer">
+                Государственная инспекция по контролю за использованием объектов недвижимости города Москвы
+                <div class="copyright">Все права защищены. 2020</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
